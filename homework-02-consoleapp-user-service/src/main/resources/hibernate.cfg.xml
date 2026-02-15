@@ -9,7 +9,7 @@
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/userdb</property>
         <property name="hibernate.connection.username">postgres</property>
-        <property name="hibernate.connection.password">12345</property> <!-- поменяй на свой пароль -->
+        <property name="hibernate.connection.password">1qaz!QAZ</property>
 
         <!-- Настройки пула соединений (простая версия) -->
         <property name="hibernate.connection.pool_size">10</property>

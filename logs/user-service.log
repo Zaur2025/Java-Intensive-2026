@@ -1,0 +1,78 @@
+2026-02-10 08:44:24.979 [main] DEBUG org.hibernate.SQL - 
+    create table users (
+        id bigserial not null,
+        age integer,
+        created_at timestamp(6) not null,
+        email varchar(100) not null,
+        name varchar(100) not null,
+        primary key (id)
+    )
+2026-02-10 08:44:24.993 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists users 
+       drop constraint if exists UK_6dotkott2kjsp8vw4d0m25fb7
+2026-02-10 08:44:24.996 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists users 
+       add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email)
+2026-02-10 08:49:45.519 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2026-02-10 08:50:14.568 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2026-02-10 08:50:18.303 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name 
+    from
+        users u1_0
+2026-02-10 10:17:39.553 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2026-02-10 10:18:04.059 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2026-02-10 10:18:04.076 [main] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        email=?,
+        name=? 
+    where
+        id=?
+2026-02-10 10:18:07.901 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name 
+    from
+        users u1_0

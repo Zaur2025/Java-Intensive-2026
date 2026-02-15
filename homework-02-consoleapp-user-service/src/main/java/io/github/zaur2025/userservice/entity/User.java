@@ -33,7 +33,7 @@ public class User {
         this.createdAt = LocalDateTime.now();
     }
 
-    // Геттеры и сеттеры (IDEA: Alt+Insert → Getter and Setter)
+    // Геттеры и сеттеры
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
