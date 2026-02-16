@@ -20,7 +20,7 @@
         </Logger>
 
         <!-- Наше приложение -->
-        <Logger name="com.example.userservice" level="info" additivity="false">
+        <Logger name="io.github.zaur2025.userservice" level="info" additivity="false">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="File"/>
         </Logger>
