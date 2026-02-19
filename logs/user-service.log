@@ -1,0 +1,213 @@
+2026-02-10 08:44:24.979 [main] DEBUG org.hibernate.SQL - 
+    create table users (
+        id bigserial not null,
+        age integer,
+        created_at timestamp(6) not null,
+        email varchar(100) not null,
+        name varchar(100) not null,
+        primary key (id)
+    )
+2026-02-10 08:44:24.993 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists users 
+       drop constraint if exists UK_6dotkott2kjsp8vw4d0m25fb7
+2026-02-10 08:44:24.996 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists users 
+       add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email)
+2026-02-10 08:49:45.519 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2026-02-10 08:50:14.568 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2026-02-10 08:50:18.303 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name 
+    from
+        users u1_0
+2026-02-10 10:17:39.553 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2026-02-10 10:18:04.059 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2026-02-10 10:18:04.076 [main] DEBUG org.hibernate.SQL - 
+    update
+        users 
+    set
+        age=?,
+        email=?,
+        name=? 
+    where
+        id=?
+2026-02-10 10:18:07.901 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name 
+    from
+        users u1_0
+2026-02-16 10:22:50.517 [main] DEBUG org.hibernate.SQL - 
+    create table users (
+        id bigserial not null,
+        age integer,
+        created_at timestamp(6) not null,
+        email varchar(100) not null,
+        name varchar(100) not null,
+        primary key (id)
+    )
+2026-02-16 10:22:50.529 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists users 
+       drop constraint if exists UK_6dotkott2kjsp8vw4d0m25fb7
+2026-02-16 10:22:50.532 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists users 
+       add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email)
+2026-02-16 10:22:56.216 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name 
+    from
+        users u1_0
+2026-02-16 10:23:16.740 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2026-02-16 10:23:28.408 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2026-02-16 10:23:31.939 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name 
+    from
+        users u1_0
+2026-02-16 10:24:53.667 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name 
+    from
+        users u1_0
+2026-02-16 10:24:53.672 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Ошибка ввода/вывода при отправке бэкенду
+2026-02-16 10:37:31.227 [main] DEBUG org.hibernate.SQL - 
+    create table users (
+        id bigserial not null,
+        age integer,
+        created_at timestamp(6) not null,
+        email varchar(100) not null,
+        name varchar(100) not null,
+        primary key (id)
+    )
+2026-02-16 10:37:31.238 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists users 
+       drop constraint if exists UK_6dotkott2kjsp8vw4d0m25fb7
+2026-02-16 10:37:31.241 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists users 
+       add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email)
+2026-02-16 10:37:39.351 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2026-02-16 10:37:44.328 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2026-02-16 10:37:47.192 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name 
+    from
+        users u1_0
+2026-02-19 09:38:47.349 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Подсоединение по адресу localhost:5432 отклонено. Проверьте что хост и порт указаны правильно и что postmaster принимает TCP/IP-подсоединения.
+2026-02-19 09:40:41.193 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - FATAL: password authentication failed for user "postgres"
+2026-02-19 09:41:52.405 [main] DEBUG org.hibernate.SQL - 
+    create table users (
+        id bigserial not null,
+        age integer,
+        created_at timestamp(6) not null,
+        email varchar(100) not null,
+        name varchar(100) not null,
+        primary key (id)
+    )
+2026-02-19 09:41:52.421 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists users 
+       drop constraint if exists UK_6dotkott2kjsp8vw4d0m25fb7
+2026-02-19 09:41:52.423 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists users 
+       add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email)
+2026-02-19 09:42:17.572 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2026-02-19 09:42:36.463 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2026-02-19 09:42:39.378 [main] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name 
+    from
+        users u1_0

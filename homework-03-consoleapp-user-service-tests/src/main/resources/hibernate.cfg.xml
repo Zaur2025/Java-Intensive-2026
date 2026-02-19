@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Настройки подключения к PostgreSQL -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/userdb</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">1qaz!QAZ</property>
+
+        <!-- Настройки пула соединений (простая версия) -->
+        <property name="hibernate.connection.pool_size">10</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <!-- SQL диалект для PostgreSQL -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Показывать SQL в консоли (удобно для отладки) -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Автоматическое создание/обновление таблиц -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Кодировка -->
+        <property name="hibernate.connection.charSet">UTF-8</property>
+        <property name="hibernate.connection.characterEncoding">UTF-8</property>
+        <property name="hibernate.connection.useUnicode">true</property>
+    </session-factory>
+</hibernate-configuration>
