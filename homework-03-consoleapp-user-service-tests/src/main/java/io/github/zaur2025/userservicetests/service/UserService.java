@@ -1,7 +1,7 @@
-package io.github.zaur2025.userservice.service;
+package io.github.zaur2025.userservicetests.service;
 
-import io.github.zaur2025.userservice.dao.UserDao;
-import io.github.zaur2025.userservice.entity.User;
+import io.github.zaur2025.userservicetests.dao.UserDao;
+import io.github.zaur2025.userservicetests.entity.User;
 
 import java.util.List;
 import java.util.Optional;

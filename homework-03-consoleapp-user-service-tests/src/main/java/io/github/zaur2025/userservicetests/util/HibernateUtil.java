@@ -1,5 +1,6 @@
-package io.github.zaur2025.userservice.util;
+package io.github.zaur2025.userservicetests.util;
 
+import io.github.zaur2025.userservicetests.entity.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -13,7 +14,7 @@ public class HibernateUtil {
             configuration.configure("hibernate.cfg.xml");
 
             // Регистрируем нашу сущность
-            configuration.addAnnotatedClass(io.github.zaur2025.userservice.entity.User.class);
+            configuration.addAnnotatedClass(User.class);
 
             sessionFactory = configuration.buildSessionFactory();
         } catch (Exception e) {

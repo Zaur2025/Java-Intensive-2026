@@ -1,10 +1,9 @@
-package io.github.zaur2025.userservice;
+package io.github.zaur2025.userservicetests;
 
-import io.github.zaur2025.userservice.dao.UserDao;
-import io.github.zaur2025.userservice.entity.User;
-import io.github.zaur2025.userservice.util.HibernateUtil;
+import io.github.zaur2025.userservicetests.dao.UserDao;
+import io.github.zaur2025.userservicetests.entity.User;
+import io.github.zaur2025.userservicetests.util.HibernateUtil;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;

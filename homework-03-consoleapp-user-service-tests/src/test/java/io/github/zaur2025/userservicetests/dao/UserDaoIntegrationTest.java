@@ -1,15 +1,13 @@
-package io.github.zaur2025.userservice.dao;
+package io.github.zaur2025.userservicetests.dao;
 
-import io.github.zaur2025.userservice.entity.User;
-import io.github.zaur2025.userservice.util.HibernateUtil;
-import org.hibernate.Session;
+import io.github.zaur2025.userservicetests.entity.User;
+import io.github.zaur2025.userservicetests.util.HibernateUtil;
 import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.*;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 

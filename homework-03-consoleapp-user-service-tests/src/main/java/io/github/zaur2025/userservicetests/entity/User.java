@@ -1,4 +1,4 @@
-package io.github.zaur2025.userservice.entity;
+package io.github.zaur2025.userservicetests.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;

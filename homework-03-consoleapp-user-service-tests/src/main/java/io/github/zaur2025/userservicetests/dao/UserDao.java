@@ -1,7 +1,7 @@
-package io.github.zaur2025.userservice.dao;
+package io.github.zaur2025.userservicetests.dao;
 
-import io.github.zaur2025.userservice.entity.User;
-import io.github.zaur2025.userservice.util.HibernateUtil;
+import io.github.zaur2025.userservicetests.entity.User;
+import io.github.zaur2025.userservicetests.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;

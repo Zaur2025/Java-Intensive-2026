@@ -1,7 +1,7 @@
-package io.github.zaur2025.userservice.service;
+package io.github.zaur2025.userservicetests.service;
 
-import io.github.zaur2025.userservice.dao.UserDao;
-import io.github.zaur2025.userservice.entity.User;
+import io.github.zaur2025.userservicetests.dao.UserDao;
+import io.github.zaur2025.userservicetests.entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

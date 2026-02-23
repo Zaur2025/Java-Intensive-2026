@@ -13,6 +13,8 @@
     <modules>
         <module>homework-01-myhashmap</module>
         <module>homework-02-consoleapp-user-service</module>
+        <module>homework-03-consoleapp-user-service-tests</module>
+        <module>homework-04-consoleapp-user-service-spring</module>
     </modules>
 
     <properties>
