@@ -9,6 +9,9 @@
 - `PUT /api/users/{id}` - обновить пользователя
 - `DELETE /api/users/{id}` - удалить пользователя
 
-### Запуск:
+### Запуск PostgreSQL в Docker:
+docker run --name userservice -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=1qaz!QAZ -e POSTGRES_DB=userdb -p 5432:5432 -d postgres:15
+
+### Запуск приложения:
 ```bash
 mvn spring-boot:run
