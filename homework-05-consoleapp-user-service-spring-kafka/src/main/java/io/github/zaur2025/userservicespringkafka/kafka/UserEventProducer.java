@@ -18,7 +18,7 @@ public class UserEventProducer {
     private String topic;
 
     public void sendUserEvent(UserEvent event) {
-        log.info("📤 Отправка события {} в Kafka для пользователя {}",
+        log.info("Отправка события {} в Kafka для пользователя {}",
                 event.getEventType(), event.getEmail());
         kafkaTemplate.send(topic, event.getEmail(), event);
     }

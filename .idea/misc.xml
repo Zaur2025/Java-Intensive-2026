@@ -6,7 +6,6 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/homework-05-consoleapp-user-service-spring-kafka/pom.xml" />
-        <option value="$PROJECT_DIR$/homework-01-myhashmap/pom.xml" />
         <option value="$PROJECT_DIR$/homework-05-notification-service/pom.xml" />
       </list>
     </option>

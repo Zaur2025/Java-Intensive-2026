@@ -31,7 +31,7 @@ public class UserEventConsumer {
                 emailService.sendDeletionNotification(event.getEmail());
                 break;
             default:
-                log.warn("⚠️ Неизвестный тип события: {}", event.getEventType());
+                log.warn("Неизвестный тип события: {}", event.getEventType());
         }
     }
 }

@@ -38,9 +38,9 @@ public class EmailService {
             message.setText(text);
 
             mailSender.send(message);
-            log.info("✅ Email sent to {}", to);
+            log.info("Email sent to {}", to);
         } catch (Exception e) {
-            log.error("❌ Ошибка при отправке email на {}: {}", to, e.getMessage());
+            log.error("Ошибка при отправке email на {}: {}", to, e.getMessage());
         }
     }
 }

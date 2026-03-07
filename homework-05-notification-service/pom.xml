@@ -47,7 +47,7 @@
             </exclusions>
         </dependency>
 
-        <!-- Kafka Test (важно!) -->
+        <!-- Kafka Test -->
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka-test</artifactId>
@@ -105,7 +105,7 @@
             </exclusions>
         </dependency>
 
-        <!-- Lombok (без изменений) -->
+        <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

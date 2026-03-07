@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-    private final UserEventProducer eventProducer;  // 🔴 НОВОЕ ПОЛЕ
+    private final UserEventProducer eventProducer;  // НОВОЕ ПОЛЕ
 
     @Override
     @Transactional
@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
         User savedUser = userRepository.save(user);
         log.info("✅ Пользователь создан с ID: {}", savedUser.getId());
 
-        // 🔴 НОВОЕ: отправка события в Kafka
+        // НОВОЕ: отправка события в Kafka
         UserEvent event = new UserEvent(
                 savedUser.getId(),
                 savedUser.getEmail(),
@@ -98,14 +98,14 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(Long id) {
         log.info("Удаление пользователя с ID: {}", id);
 
-        // 🔴 ВАЖНО: сначала найти пользователя, чтобы получить email
+        // ВАЖНО: сначала найти пользователя, чтобы получить email
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Пользователь с ID " + id + " не найден"));
 
         userRepository.deleteById(id);
         log.info("✅ Пользователь удален: {}", id);
 
-        // 🔴 НОВОЕ: отправка события в Kafka
+        // НОВОЕ: отправка события в Kafka
         UserEvent event = new UserEvent(
                 id,
                 user.getEmail(),
