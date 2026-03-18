@@ -8,6 +8,11 @@
         <option value="$PROJECT_DIR$/homework-05-consoleapp-user-service-spring-kafka/pom.xml" />
         <option value="$PROJECT_DIR$/homework-05-notification-service/pom.xml" />
         <option value="$PROJECT_DIR$/homework-06-consoleapp-user-service-spring-swagger-hateoas/pom.xml" />
+        <option value="$PROJECT_DIR$/homework-07-microservices/consoleapp-user-service-spring-kafka/pom.xml" />
+        <option value="$PROJECT_DIR$/homework-07-microservices/notification-service/pom.xml" />
+        <option value="$PROJECT_DIR$/homework-07-microservices/config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/homework-07-microservices/discovery-server/pom.xml" />
+        <option value="$PROJECT_DIR$/homework-07-microservices/api-gateway/pom.xml" />
       </list>
     </option>
   </component>
