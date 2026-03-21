@@ -15,6 +15,9 @@
         <module>homework-02-consoleapp-user-service</module>
         <module>homework-03-consoleapp-user-service-tests</module>
         <module>homework-04-consoleapp-user-service-spring</module>
+        <module>homework-05-consoleapp-user-service-spring-kafka</module>
+        <module>homework-05-notification-service</module>
+        <module>homework-06-consoleapp-user-service-spring-swagger-hateoas</module>
     </modules>
 
     <properties>
