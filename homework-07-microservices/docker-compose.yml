@@ -1,17 +1,26 @@
+version: '3.8'
+
 services:
   # ============================================
-  # INFRASTRUCTURE (БД и Kafka)
+  # INFRASTRUCTURE
   # ============================================
   
   postgres:
     image: postgres:15
-    container_name: userservice
+    container_name: postgres
     environment:
-      POSTGRES_DB: userdb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1qaz!QAZ
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     networks:
       - microservices-network
 
@@ -36,17 +45,15 @@ services:
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-      # Настройки для новых версий Kafka
-      KAFKA_PROCESS_ROLES: broker,controller
-      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@localhost:9093
-      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+    healthcheck:
+      test: ["CMD", "kafka-topics", "--bootstrap-server", "kafka:9092", "--list"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
     networks:
       - microservices-network
 
@@ -59,6 +66,11 @@ services:
     container_name: discovery-server
     ports:
       - "8761:8761"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
     networks:
       - microservices-network
 
@@ -69,6 +81,16 @@ services:
       - "8888:8888"
     depends_on:
       - discovery-server
+    environment:
+      SPRING_PROFILES_ACTIVE: native
+      # Если нужна безопасность:
+      # SPRING_SECURITY_USER_NAME: ${CONFIG_SERVER_USER}
+      # SPRING_SECURITY_USER_PASSWORD: ${CONFIG_SERVER_PASSWORD}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8888/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
     networks:
       - microservices-network
 
@@ -77,17 +99,24 @@ services:
   # ============================================
 
   user-service:
-    build: ./consoleapp-user-service-spring-kafka
+    build: ./user-service
     container_name: user-service
     depends_on:
-      - postgres
-      - kafka
-      - discovery-server
-      - config-server
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      discovery-server:
+        condition: service_healthy
+      config-server:
+        condition: service_healthy
     environment:
       DB_HOST: postgres
-      DB_PASSWORD: 1qaz!QAZ
+      DB_USERNAME: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
       KAFKA_SERVERS: kafka:9092
+    ports:
+      - "8081"  # динамический порт, но можно зафиксировать для тестов
     networks:
       - microservices-network
 
@@ -95,15 +124,21 @@ services:
     build: ./notification-service
     container_name: notification-service
     depends_on:
-      - kafka
-      - discovery-server
-      - config-server
+      kafka:
+        condition: service_healthy
+      discovery-server:
+        condition: service_healthy
+      config-server:
+        condition: service_healthy
     environment:
       KAFKA_SERVERS: kafka:9092
       MAIL_HOST: ${MAIL_HOST}
+      MAIL_PORT: ${MAIL_PORT}
       MAIL_USERNAME: ${MAIL_USERNAME}
       MAIL_PASSWORD: ${MAIL_PASSWORD}
       MAIL_FROM: ${MAIL_FROM}
+    ports:
+      - "8082"
     networks:
       - microservices-network
 
@@ -117,17 +152,24 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - user-service
-      - notification-service
-      - discovery-server
-      - config-server
+      user-service:
+        condition: service_started
+      notification-service:
+        condition: service_started
+      discovery-server:
+        condition: service_healthy
+      config-server:
+        condition: service_healthy
     networks:
       - microservices-network
 
 # ============================================
-# NETWORKS
+# NETWORKS & VOLUMES
 # ============================================
 
 networks:
   microservices-network:
     driver: bridge
+
+volumes:
+  postgres_data:

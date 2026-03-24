@@ -1,0 +1,36 @@
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_SERVERS:kafka:9092}
+    consumer:
+      group-id: notification-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+        spring.json.type.mapping: "userEvent:io.github.zaur2025.notificationservice.dto.UserEvent"
+
+  mail:
+    host: ${MAIL_HOST:smtp.yandex.ru}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+    from: ${MAIL_FROM}
+
+app:
+  kafka:
+    topic:
+      user-events: user-events-topic
+
+server:
+  port: 0
+
+logging:
+  level:
+    io.github.zaur2025.notificationservice: DEBUG
